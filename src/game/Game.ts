@@ -17,8 +17,8 @@ export interface IConfig {
 
 export const config: IConfig = {
 	type: Phaser.AUTO,
-	width: 1920,
-	height: 1080,
+	width: 640,
+	height: 480,
 	backgroundColor: "#000000",
 	pixelArt: true,
 	scale: {
