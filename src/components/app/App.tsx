@@ -1,4 +1,5 @@
 import "./app.css";
+import "../../css/bit.css";
 import { useState } from "react";
 import React from "react";
 

@@ -10,7 +10,7 @@ export interface MenuProps {
 const Menu: React.FC<MenuProps> = ({ game }) => {
 	const scene = game?.scene.getScene("GameScene") as Scenes.GameScene;
 	return (
-		<div className="menu">
+		<div className="bit-container menu">
 			<div>Menu</div>
 		</div>
 	);
