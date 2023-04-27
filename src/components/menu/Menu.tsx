@@ -2,12 +2,10 @@ import "./menu.css";
 
 import React from "react";
 import * as Scenes from "../../game/scenes";
+import { useGameContext } from "../app";
 
-export interface MenuProps {
-	game: Phaser.Game | undefined;
-}
-
-const Menu: React.FC<MenuProps> = ({ game }) => {
+const Menu: React.FC = () => {
+	const { game } = useGameContext();
 	const scene = game?.scene.getScene("GameScene") as Scenes.GameScene;
 	return (
 		<div className="bit-container menu">

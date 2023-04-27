@@ -1,10 +1,22 @@
 import "./app.css";
 import "../../css/bit.css";
-import { useState } from "react";
+import { createContext, useContext, useState } from "react";
 import React from "react";
 
 import Menu from "../menu/Menu";
 import Game from "../game/Game";
+
+export type GameContextType = {
+	game: Phaser.Game | undefined;
+	setGame: (game: Phaser.Game) => void;
+};
+
+export const GameContext = createContext<GameContextType>({
+	game: undefined,
+	setGame: (game) => console.warn("no game provider"),
+});
+
+export const useGameContext = () => useContext(GameContext);
 
 //document.addEventListener("contextmenu", (event) => event.preventDefault());
 
@@ -23,10 +35,10 @@ const App: React.FC = () => {
 	return (
 		<div>
 			<div className="game-layer-container">
-				<Game onGameCreate={(g) => setGame(g)} />
+				<Game />
 			</div>
 			<div className="ui-layer-container">
-				<Menu game={game} />
+				<Menu />
 			</div>
 			{windowTooSmall ? (
 				<div className="window-too-small">The window is too small.</div>
