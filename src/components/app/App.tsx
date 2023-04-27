@@ -34,17 +34,19 @@ const App: React.FC = () => {
 
 	return (
 		<div>
-			<div className="game-layer-container">
-				<Game />
-			</div>
-			<div className="ui-layer-container">
-				<Menu />
-			</div>
-			{windowTooSmall ? (
-				<div className="window-too-small">The window is too small.</div>
-			) : (
-				<></>
-			)}
+			<GameContext.Provider value={{ game, setGame }}>
+				<div className="game-layer-container">
+					<Game />
+				</div>
+				<div className="ui-layer-container">
+					<Menu />
+				</div>
+				{windowTooSmall ? (
+					<div className="window-too-small">The window is too small.</div>
+				) : (
+					<></>
+				)}
+			</GameContext.Provider>
 		</div>
 	);
 };
